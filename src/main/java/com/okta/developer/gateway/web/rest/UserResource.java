@@ -76,6 +76,8 @@ public class UserResource {
     public Mono<ResponseEntity<Flux<AdminUserDTO>>> getAllUsers(ServerHttpRequest request, Pageable pageable) {
         log.debug("REST request to get all User for an admin");
 
+        // Mono & Flux https://medium.com/@cheron.antoine/reactor-java-1-how-to-create-mono-and-flux-471c505fa158
+        // Pageable https://reflectoring.io/spring-boot-paging/
         return userService
             .countManagedUsers()
             .map(total -> new PageImpl<>(new ArrayList<>(), pageable, total))

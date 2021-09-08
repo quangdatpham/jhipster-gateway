@@ -49,6 +49,8 @@ public interface UserRepository extends R2dbcRepository<User, String>, UserRepos
     Mono<Void> deleteUserAuthorities(Long userId);
 }
 
+// Spring Data Composable Repositories
+// https://dzone.com/articles/you-dont-need-hibernate-with-spring-webflux-and-r2
 interface UserRepositoryInternal {
     Mono<User> findOneWithAuthoritiesByLogin(String login);
 
